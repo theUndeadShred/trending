@@ -45,7 +45,7 @@ class Typer extends Component {
 
         if (split.length < this.state.currentIndex) {
             console.log('ending loop')
-            // this.props.reset()
+            this.props.reset()
             return;
         }
 

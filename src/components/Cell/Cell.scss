@@ -1,41 +1,98 @@
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-left {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.cell-container {
+    overflow: hidden;
+}
+
 .Cell {
     color: #fff;
     display: flex;
-    padding: 10px;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 10px;
 
     &.color0 {
+        animation: slide-down .3s 1 ease-out;
         background-color: green;
     }
 
     &.color1 {
+        animation: slide-up .3s 1 ease-out;
         background-color: lightgreen;
     }
 
     &.color2 {
+        animation: slide-left .3s 1 ease-out;
         background-color: purple;
     }
 
     &.color3 {
+        animation: slide-right .3s 1 ease-out;
         background-color: red;
     }
 
     &.color4 {
+        animation: slide-up .3s 1 ease-out;
         background-color: darkblue;
     }
 
     &.color5 {
+        animation: slide-left .3s 1 ease-out;
         background-color: orange;
     }
 
     &.color6 {
+        animation: slide-down .3s 1 ease-out;
         background-color: turquoise;
     }
 
     &.color7 {
+        animation: slide-right .3s 1 ease-out;
         background-color: darkred;
     }
 
     &.color8 {
+        animation: slide-left .3s 1 ease-out;
         background-color: yellow;
     }
 

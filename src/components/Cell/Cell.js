@@ -24,8 +24,10 @@ class Cell extends Component {
     render = () => {
         let colorKey = Math.floor(Math.random() * Math.floor(8));
         return (
-            <div className={`Cell color${colorKey}`}>
-                <Typer reset={this.reset} input={this.props.fetchAnimal()}></Typer>
+            <div className="cell-container">
+                <div className={`Cell color${colorKey}`}>
+                    <Typer reset={this.reset} input={this.props.fetchAnimal()}></Typer>
+                </div>
             </div>
         );
     }

@@ -40,16 +40,12 @@ class Typer extends Component {
 
     renderTyperAnimation = () => {
         let split = this.props.input.split('');
-        console.log('input', this.props.input)
         let interval = Math.floor(Math.random() * Math.floor(1000));
 
         if (split.length < this.state.currentIndex) {
-            console.log('ending loop')
             this.props.reset()
             return;
         }
-
-        console.log('timeout running - ' + this.state.currentIndex);
 
         setTimeout(function () {
             this.setState({
@@ -58,7 +54,6 @@ class Typer extends Component {
                 input: this.props.input
             });
         }.bind(this), interval);
-        console.log('finished run')
     }
 
     render = () => {

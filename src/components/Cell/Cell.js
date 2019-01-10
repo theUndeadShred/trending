@@ -15,7 +15,6 @@ class Cell extends Component {
     }
 
     reset = () => {
-        console.log('setting state in reset')
         this.setState({
             animal: this.props.fetchAnimal()
         })

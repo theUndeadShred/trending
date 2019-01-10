@@ -9,47 +9,45 @@ class TrendsMatrix extends Component {
         data: array
     };
 
-    // static getDerivedStateFromProps(props, state) {
-    //     if (!state || state.max) {
-    //         this.setState({
-    //             max: props.data.length
-    //         })
-    //     }
-    // }
+    // set the maximum possible value for the random animal assignment
+    // based on the data provided
+    static getDerivedStateFromProps(props, state) {
+        if (!state.max) {
+                return { max: props.data.length }
+        }
+        return null;
+    }
 
-    fetchAnimal = () => {
-        const max = this.props.data.length
-        return this.props.data[Math.floor(Math.random() * Math.floor(max))];
+    state = {
+        max: 0,
+    }
+
+    // generate random int based on dataset and use to access value via index
+    fetchAnimal = () => (
+        this.props.data[
+            Math.floor(
+                Math.random() * Math.floor(this.state.max)
+            )
+        ]
+    )
+
+    // render the exact number of cells defined in state
+    getCells = () => {
+        let i = 0;
+        let cells = [];
+
+        do {
+            cells.push(<Cell key={i} fetchAnimal={this.fetchAnimal}></Cell>);
+            i++;
+        }
+        while (this.props.cellCount > i);
+        return cells;
     }
 
     render = () => {
         return (
             <div className='matrix'>
-                <Cell key="1" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="2" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="3" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="4" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="5" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="6" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="7" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="8" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="9" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="10" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="11" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="12" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="13" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="14" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="15" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="16" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="17" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="18" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="19" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="20" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="21" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="22" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="23" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="24" fetchAnimal={this.fetchAnimal}></Cell>
-                <Cell key="25" fetchAnimal={this.fetchAnimal}></Cell>
+                {this.getCells()}
             </div>
         );
     };

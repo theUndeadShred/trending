@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TrendsMatrix data={data}/>
+        <TrendsMatrix cellCount={25} data={data}/>
       </div>
     );
   }

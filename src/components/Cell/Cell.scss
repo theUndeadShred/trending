@@ -1,0 +1,42 @@
+.Cell {
+    color: #fff;
+    display: flex;
+    padding: 10px;
+
+    &.color0 {
+        background-color: green;
+    }
+
+    &.color1 {
+        background-color: lightgreen;
+    }
+
+    &.color2 {
+        background-color: purple;
+    }
+
+    &.color3 {
+        background-color: red;
+    }
+
+    &.color4 {
+        background-color: darkblue;
+    }
+
+    &.color5 {
+        background-color: orange;
+    }
+
+    &.color6 {
+        background-color: turquoise;
+    }
+
+    &.color7 {
+        background-color: darkred;
+    }
+
+    &.color8 {
+        background-color: yellow;
+    }
+
+}

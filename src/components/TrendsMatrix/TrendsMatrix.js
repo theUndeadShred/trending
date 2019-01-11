@@ -23,6 +23,8 @@ class TrendsMatrix extends Component {
     }
 
     // generate random int based on dataset and use to access value via index
+    // since each cell and subsequent typer will manage animation and state,
+    // pass this function to each Cell instance
     fetchAnimal = () => (
         this.props.data[
             Math.floor(

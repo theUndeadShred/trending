@@ -40,12 +40,18 @@ class Typer extends Component {
 
     renderTyperAnimation = () => {
         let split = this.props.input.split('');
-        let interval = Math.floor(Math.random() * Math.floor(1000));
 
+        // If we have iterated thorugh the input completely,
+        //  invoke a new animal input! This will also cause a
+        // state reset via getDerivedStateFromProps()
         if (split.length < this.state.currentIndex) {
             this.props.reset()
             return;
         }
+
+        // each time we run through the loop, randomize the interval
+        // to help naturalize the typing
+        let interval = Math.floor(Math.random() * Math.floor(1000));
 
         setTimeout(function () {
             this.setState({

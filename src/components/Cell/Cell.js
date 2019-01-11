@@ -20,6 +20,8 @@ class Cell extends Component {
         })
     }
 
+    // each time a cell is rendered, assign a random colorKey value
+    // which will coorspond to a cell color and slide-animation style
     render = () => {
         let colorKey = Math.floor(Math.random() * Math.floor(8));
         return (

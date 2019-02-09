@@ -1,37 +1,24 @@
-import React, { Component } from 'react';
-import { func } from 'prop-types'
-
+import React, { useState } from 'react';
 import './Cell.scss';
 import Typer from '../Typer';
 
-class Cell extends Component {
-    static propTypes = {
-        fetchAnimal: func,
-        reset: func
+function Cell(props) {
+
+    const [animal, setAnimal] = useState(props.fetchAnimal())
+    const [colorKey, setColorKey] = useState(Math.floor(Math.random() * Math.floor(8)))
+
+    const reset = () => {
+        setAnimal(props.fetchAnimal())
+        setColorKey(Math.floor(Math.random() * Math.floor(8)))
     }
 
-    state = {
-        animal: ''
-    }
-
-    reset = () => {
-        this.setState({
-            animal: this.props.fetchAnimal()
-        })
-    }
-
-    // each time a cell is rendered, assign a random colorKey value
-    // which will coorspond to a cell color and slide-animation style
-    render = () => {
-        let colorKey = Math.floor(Math.random() * Math.floor(8));
-        return (
-            <div className="cell-container">
-                <div className={`Cell color${colorKey}`}>
-                    <Typer reset={this.reset} input={this.props.fetchAnimal()}></Typer>
-                </div>
+    return (
+        <div className="cell-container">
+            <div className={`Cell color${colorKey}`}>
+                <Typer reset={reset} input={animal}></Typer>
             </div>
-        );
-    }
-};
+        </div>
+    )
+}
 
 export default Cell;
